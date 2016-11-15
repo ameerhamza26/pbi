@@ -1,0 +1,34 @@
+c:\users\ik\documents\visual studio 2010\Projects\IBP\IBP\obj\Debug\IBP.Resources.resources
+c:\users\ik\documents\visual studio 2010\Projects\IBP\IBP\bin\IBP.dll
+c:\users\ik\documents\visual studio 2010\Projects\IBP\IBP\bin\IBP.pdb
+c:\users\ik\documents\visual studio 2010\Projects\IBP\IBP\bin\IBP.xml
+c:\users\ik\documents\visual studio 2010\Projects\IBP\IBP\obj\Debug\IBP.dll
+c:\users\ik\documents\visual studio 2010\Projects\IBP\IBP\obj\Debug\IBP.xml
+c:\users\ik\documents\visual studio 2010\Projects\IBP\IBP\obj\Debug\IBP.pdb
+C:\Users\ik\documents\visual studio 2010\Projects\IBP\IBP\obj\Debug\IBP.vbproj.GenerateResource.Cache
+C:\Users\Mateen\Desktop\IBP\IBP\obj\Debug\IBP.Resources.resources
+C:\Users\Mateen\Desktop\IBP\IBP\obj\Debug\IBP.vbproj.GenerateResource.Cache
+C:\Users\Mateen\Desktop\IBP\IBP\bin\IBP.dll.config
+C:\Users\Mateen\Desktop\IBP\IBP\bin\IBP.dll
+C:\Users\Mateen\Desktop\IBP\IBP\bin\IBP.pdb
+C:\Users\Mateen\Desktop\IBP\IBP\bin\IBP.xml
+C:\Users\Mateen\Desktop\IBP\IBP\obj\Debug\IBP.dll
+C:\Users\Mateen\Desktop\IBP\IBP\obj\Debug\IBP.xml
+C:\Users\Mateen\Desktop\IBP\IBP\obj\Debug\IBP.pdb
+E:\Projects\IBP\IBP\bin\IBP.dll.config
+E:\Projects\IBP\IBP\bin\IBP.dll
+E:\Projects\IBP\IBP\bin\IBP.pdb
+E:\Projects\IBP\IBP\bin\IBP.xml
+E:\Projects\IBP\IBP\obj\Debug\IBP.Resources.resources
+E:\Projects\IBP\IBP\obj\Debug\IBP.vbproj.GenerateResource.Cache
+E:\Projects\IBP\IBP\obj\Debug\IBP.dll
+E:\Projects\IBP\IBP\obj\Debug\IBP.xml
+E:\Projects\IBP\IBP\obj\Debug\IBP.pdb
+E:\IBP\IBP\bin\IBP.dll
+E:\IBP\IBP\bin\IBP.pdb
+E:\IBP\IBP\bin\IBP.xml
+E:\IBP\IBP\obj\Debug\IBP.Resources.resources
+E:\IBP\IBP\obj\Debug\IBP.vbproj.GenerateResource.Cache
+E:\IBP\IBP\obj\Debug\IBP.dll
+E:\IBP\IBP\obj\Debug\IBP.xml
+E:\IBP\IBP\obj\Debug\IBP.pdb

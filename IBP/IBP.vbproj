@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{67687637-524F-4D57-AEDA-C9285A14B42A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IBP</RootNamespace>
+    <AssemblyName>IBP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IBP.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IBP.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddUser.aspx" />
+    <Content Include="Application.aspx" />
+    <Content Include="cal\calendar.gif" />
+    <Content Include="cal\close.gif" />
+    <Content Include="cal\divider.gif" />
+    <Content Include="cal\drop1.gif" />
+    <Content Include="cal\drop2.gif" />
+    <Content Include="cal\left1.gif" />
+    <Content Include="cal\left2.gif" />
+    <Content Include="cal\popcalendar.css" />
+    <Content Include="cal\popcalendar.js" />
+    <Content Include="cal\right1.gif" />
+    <Content Include="cal\right2.gif" />
+    <Content Include="cal\up2.gif" />
+    <Content Include="BlockUser.aspx" />
+    <Content Include="FinBulkVerify.aspx" />
+    <Content Include="CustomerView.aspx" />
+    <Content Include="ExMRejectedDetails.aspx" />
+    <Content Include="ExMRejected.aspx" />
+    <Content Include="UploadEligibility.aspx" />
+    <Content Include="ExMView.aspx" />
+    <Content Include="ExMVerifyDetails.aspx" />
+    <Content Include="ExMVerify.aspx" />
+    <Content Include="FinView.aspx" />
+    <Content Include="ViewDetails.aspx" />
+    <Content Include="ExView.aspx" />
+    <Content Include="FinVerifyDetails.aspx" />
+    <Content Include="FinVerify.aspx" />
+    <Content Include="ExVerifyDetails.aspx" />
+    <Content Include="EditRole.aspx" />
+    <Content Include="oldFinVerify.aspx" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\DataTable\jquery-ui-1.8.21.custom.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\main.css" />
+    <Content Include="DateSelector.ascx" />
+    <Content Include="Default.aspx" />
+    <Content Include="ExVerify.aspx" />
+    <Content Include="GenerateRollNo.aspx" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\TIS.png" />
+    <Content Include="MailPassword.aspx" />
+    <Content Include="PrintAppForm.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="Scripts\AjaxCaller.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTable\jquery-ui.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="UploadResult.aspx" />
+    <Content Include="UserLogin.aspx" />
+    <Content Include="ViewEligibility.aspx" />
+    <Content Include="ViewResult.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddUser.aspx.designer.vb">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.aspx.vb">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Application.aspx.designer.vb">
+      <DependentUpon>Application.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application.aspx.vb">
+      <DependentUpon>Application.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BlockUser.aspx.designer.vb">
+      <DependentUpon>BlockUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BlockUser.aspx.vb">
+      <DependentUpon>BlockUser.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FinBulkVerify.aspx.designer.vb">
+      <DependentUpon>FinBulkVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinBulkVerify.aspx.vb">
+      <DependentUpon>FinBulkVerify.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="CustomerView.aspx.designer.vb">
+      <DependentUpon>CustomerView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerView.aspx.vb">
+      <DependentUpon>CustomerView.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExMRejectedDetails.aspx.designer.vb">
+      <DependentUpon>ExMRejectedDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExMRejectedDetails.aspx.vb">
+      <DependentUpon>ExMRejectedDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExMRejected.aspx.designer.vb">
+      <DependentUpon>ExMRejected.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExMRejected.aspx.vb">
+      <DependentUpon>ExMRejected.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="MySqlCommand.vb" />
+    <Compile Include="UploadEligibility.aspx.designer.vb">
+      <DependentUpon>UploadEligibility.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadEligibility.aspx.vb">
+      <DependentUpon>UploadEligibility.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExMView.aspx.designer.vb">
+      <DependentUpon>ExMView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExMView.aspx.vb">
+      <DependentUpon>ExMView.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExMVerifyDetails.aspx.designer.vb">
+      <DependentUpon>ExMVerifyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExMVerifyDetails.aspx.vb">
+      <DependentUpon>ExMVerifyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExMVerify.aspx.designer.vb">
+      <DependentUpon>ExMVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExMVerify.aspx.vb">
+      <DependentUpon>ExMVerify.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FinView.aspx.designer.vb">
+      <DependentUpon>FinView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinView.aspx.vb">
+      <DependentUpon>FinView.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ViewDetails.aspx.designer.vb">
+      <DependentUpon>ViewDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDetails.aspx.vb">
+      <DependentUpon>ViewDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExView.aspx.designer.vb">
+      <DependentUpon>ExView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExView.aspx.vb">
+      <DependentUpon>ExView.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FinVerifyDetails.aspx.designer.vb">
+      <DependentUpon>FinVerifyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinVerifyDetails.aspx.vb">
+      <DependentUpon>FinVerifyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FinVerify.aspx.designer.vb">
+      <DependentUpon>FinVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinVerify.aspx.vb">
+      <DependentUpon>FinVerify.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExVerifyDetails.aspx.designer.vb">
+      <DependentUpon>ExVerifyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExVerifyDetails.aspx.vb">
+      <DependentUpon>ExVerifyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="EditRole.aspx.designer.vb">
+      <DependentUpon>EditRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditRole.aspx.vb">
+      <DependentUpon>EditRole.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="oldFinVerify.aspx.designer.vb">
+      <DependentUpon>oldFinVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="oldFinVerify.aspx.vb">
+      <DependentUpon>oldFinVerify.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DateSelector.ascx.designer.vb">
+      <DependentUpon>DateSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DateSelector.ascx.vb">
+      <DependentUpon>DateSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExVerify.aspx.designer.vb">
+      <DependentUpon>ExVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExVerify.aspx.vb">
+      <DependentUpon>ExVerify.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="General.vb" />
+    <Compile Include="GenerateRollNo.aspx.designer.vb">
+      <DependentUpon>GenerateRollNo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateRollNo.aspx.vb">
+      <DependentUpon>GenerateRollNo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="MailPassword.aspx.designer.vb">
+      <DependentUpon>MailPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MailPassword.aspx.vb">
+      <DependentUpon>MailPassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PrintAppForm.aspx.designer.vb">
+      <DependentUpon>PrintAppForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintAppForm.aspx.vb">
+      <DependentUpon>PrintAppForm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.vb">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.vb">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadResult.aspx.designer.vb">
+      <DependentUpon>UploadResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadResult.aspx.vb">
+      <DependentUpon>UploadResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UserLogin.aspx.designer.vb">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.aspx.vb">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ViewEligibility.aspx.designer.vb">
+      <DependentUpon>ViewEligibility.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEligibility.aspx.vb">
+      <DependentUpon>ViewEligibility.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ViewResult.aspx.designer.vb">
+      <DependentUpon>ViewResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewResult.aspx.vb">
+      <DependentUpon>ViewResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\IBP.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49406</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,9 @@
+E:\Projects\IBP\IBP\bin\IBP.dll.config
+E:\Projects\IBP\IBP\bin\IBP.dll
+E:\Projects\IBP\IBP\bin\IBP.pdb
+E:\Projects\IBP\IBP\bin\IBP.xml
+E:\Projects\IBP\IBP\obj\Release\IBP.Resources.resources
+E:\Projects\IBP\IBP\obj\Release\IBP.vbproj.GenerateResource.Cache
+E:\Projects\IBP\IBP\obj\Release\IBP.dll
+E:\Projects\IBP\IBP\obj\Release\IBP.xml
+E:\Projects\IBP\IBP\obj\Release\IBP.pdb
