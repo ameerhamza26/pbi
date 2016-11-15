@@ -355,6 +355,7 @@ Public Class Application
                 If dtSD.Rows.Count > 0 Then
 
                     btnSubmit.Enabled = False
+                    btnPrintForm.Enabled = True
                     cbDeclaration.Enabled = False
                     
 
@@ -595,6 +596,7 @@ Public Class Application
 
             General.DoMultiTransaction(strQuery)
             btnSubmit.Enabled = False
+
 
         Catch ex As Exception
             lblMessage.Visible = True
