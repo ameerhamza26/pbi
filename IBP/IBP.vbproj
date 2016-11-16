@@ -57,6 +57,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.0\MySql.Data.dll</HintPath>
@@ -218,6 +221,15 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="MySqlCommand.vb" />
+    <Compile Include="Program.cs.designer.vb">
+      <DependentUpon>Program.cs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs.vb">
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Program.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="UploadEligibility.aspx.designer.vb">
       <DependentUpon>UploadEligibility.aspx</DependentUpon>
     </Compile>
@@ -423,6 +435,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="log4net.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -434,6 +447,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Site.Master" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

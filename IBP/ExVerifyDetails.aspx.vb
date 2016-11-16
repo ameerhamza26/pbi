@@ -72,7 +72,13 @@
                 lblMasterTM.Text = dtApplication.Rows(0).Item("MasterTotalMarks").ToString()
                 lblMasterMO.Text = dtApplication.Rows(0).Item("MasterMarksOBT").ToString()
                 lblMasterPercentage.Text = dtApplication.Rows(0).Item("MasterPercentage").ToString()
-                lblMasterDOP.Text = dtApplication.Rows(0).Item("MasterDateDeclare").ToString()
+                lblMasterDOP.Text = String.IsNullOrEmpty(dtApplication.Rows(0).Item("MasterDateDeclare")).ToString()
+                If (String.IsNullOrEmpty(dtApplication.Rows(0).Item("MasterDateDeclare"))) Then
+                    lblMasterDOP.Text = String.Empty
+                Else
+                    lblMasterDOP.Text = dtApplication.Rows(0).Item("MasterDateDeclare").ToString()
+
+                End If
 
                 lblBachelor.Text = dtApplication.Rows(0).Item("Bachelor").ToString()
                 lblBachelorSubject.Text = dtApplication.Rows(0).Item("BachelorSubject").ToString()
@@ -82,7 +88,12 @@
                 lblBachelorTM.Text = dtApplication.Rows(0).Item("BachelorTotalMarks").ToString()
                 lblBachelorMO.Text = dtApplication.Rows(0).Item("BachelorMarksOBT").ToString()
                 lblBachelorPercentage.Text = dtApplication.Rows(0).Item("BachelorPercentage").ToString()
-                lblBachelorDOP.Text = dtApplication.Rows(0).Item("BachelorDateDeclare").ToString()
+                If (String.IsNullOrEmpty(dtApplication.Rows(0).Item("BachelorDateDeclare"))) Then
+                    lblBachelorDOP.Text = String.Empty
+                Else
+                    lblBachelorDOP.Text = dtApplication.Rows(0).Item("BachelorDateDeclare").ToString()
+
+                End If
 
                 lblInter.Text = dtApplication.Rows(0).Item("Inter").ToString()
                 lblInterSubject.Text = dtApplication.Rows(0).Item("IntermediateSubject").ToString()
@@ -90,7 +101,12 @@
                 lblInterTM.Text = dtApplication.Rows(0).Item("IntermediateTotalMarks").ToString()
                 lblInterMO.Text = dtApplication.Rows(0).Item("IntermediateMarksOBT").ToString()
                 lblInterPercentage.Text = dtApplication.Rows(0).Item("IntermediatePercentage").ToString()
-                lblInterDOP.Text = dtApplication.Rows(0).Item("IntermediateDateDeclare").ToString()
+                If (String.IsNullOrEmpty(dtApplication.Rows(0).Item("IntermediateDateDeclare"))) Then
+                    lblInterDOP.Text = String.Empty
+                Else
+                    lblInterDOP.Text = dtApplication.Rows(0).Item("IntermediateDateDeclare").ToString()
+
+                End If
 
                 lblMatric.Text = dtApplication.Rows(0).Item("Matric").ToString()
                 lblMatricSubject.Text = dtApplication.Rows(0).Item("MatricSubject").ToString()
@@ -98,7 +114,13 @@
                 lblMatricTM.Text = dtApplication.Rows(0).Item("MatricTotalMarks").ToString()
                 lblMatricMO.Text = dtApplication.Rows(0).Item("MatricMarksOBT").ToString()
                 lblMatricPercentage.Text = dtApplication.Rows(0).Item("MatricPercentage").ToString()
-                lblMatricDOP.Text = dtApplication.Rows(0).Item("MatricDateDeclare").ToString()
+                If (String.IsNullOrEmpty(dtApplication.Rows(0).Item("MatricDateDeclare"))) Then
+                    lblMatricDOP.Text = String.Empty
+                Else
+                    lblMatricDOP.Text = dtApplication.Rows(0).Item("MatricDateDeclare").ToString()
+
+                End If
+
 
                 lblOther.Text = dtApplication.Rows(0).Item("OtherQ").ToString()
                 lblOtherSubject.Text = dtApplication.Rows(0).Item("OtherSubject").ToString()
@@ -108,7 +130,13 @@
                 lblOtherTM.Text = dtApplication.Rows(0).Item("OtherTotalMarks").ToString()
                 lblOtherMO.Text = dtApplication.Rows(0).Item("OtherMarksOBT").ToString()
                 lblOtherPercentage.Text = dtApplication.Rows(0).Item("OtherPercentage").ToString()
-                lblOtherDOP.Text = dtApplication.Rows(0).Item("OtherDateDeclare").ToString()
+                If (String.IsNullOrEmpty(dtApplication.Rows(0).Item("OtherDateDeclare"))) Then
+                    lblOtherDOP.Text = String.Empty
+                Else
+                    lblOtherDOP.Text = dtApplication.Rows(0).Item("OtherDateDeclare").ToString()
+
+                End If
+
 
                 lblPreference.Text = dtApplication.Rows(0).Item("Preference").ToString()
 

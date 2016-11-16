@@ -32,3 +32,6 @@ E:\IBP\IBP\obj\Debug\IBP.vbproj.GenerateResource.Cache
 E:\IBP\IBP\obj\Debug\IBP.dll
 E:\IBP\IBP\obj\Debug\IBP.xml
 E:\IBP\IBP\obj\Debug\IBP.pdb
+E:\IBP\IBP\obj\Debug\IBP.vbprojResolveAssemblyReference.cache
+E:\IBP\IBP\bin\log4net.dll
+E:\IBP\IBP\bin\log4net.xml

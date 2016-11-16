@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Application.aspx.vb" Inherits="IBP.Application" %>
 <%@ Register TagPrefix="ucDS" TagName="DateSelector" Src="DateSelector.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script src="https://cloud.github.com/downloads/digitalBush/jquery.maskedinput/jquery.maskedinput-1.3.min.js"></script>
+    
    <script type="text/javascript">
        $(function () {
            $("#MainContent_txtDOB").datepicker({
@@ -54,9 +56,146 @@
                yearRange: "1950:2015",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
-          
-       });  
-      
+
+           $("#MainContent_txtCNIC").mask("99999-9999999-9");
+           $("#MainContent_txtMobile").mask("999-9999999");
+
+       });
+
+       $(function () {
+
+
+           $('#MainContent_txtMasterCGPA').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtMasterCGPA').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+
+           ///////
+           $('#MainContent_txtBachelorsCGPA').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtBachelorsCGPA').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+
+           ///
+           $('#MainContent_txtMasterPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtMasterPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+           ////
+           $('#MainContent_txtBachelorsPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtBachelorsPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+           /////
+
+           $('#MainContent_txtIntermediatePercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtIntermediatePercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+           ///////
+           $('#MainContent_txtMatriculationPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtMatriculationPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+           //
+           $('#MainContent_txtOtherPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtOtherPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+           function hasDecimalPlace(value, x) {
+               var pointIndex = value.indexOf('.');
+               return pointIndex >= 0 && pointIndex < value.length - x;
+           }
+       });
+
 
    </script>
 </asp:Content>
@@ -333,7 +472,7 @@
                                 </div>
                                 <div class="col-sm-6 master-other-container">
                                     <div class="form-group ">
-                                        <asp:TextBox ID="txtOtherMaster" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtOtherMaster" runat="server" CssClass="form-control test"></asp:TextBox>
                                     </div>
                                 </div>
                             </td>
@@ -689,4 +828,5 @@
                  <asp:Button ID="btnPrintForm" runat="server" Text="Print Form" 
                     CssClass="btn btn-primary btnCancel" />
             </div>            <br />            <br /></div>
+   
 </asp:Content>

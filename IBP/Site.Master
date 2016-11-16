@@ -13,7 +13,7 @@
     <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="Scripts/DataTable/jquery-ui.js" type="text/javascript"></script>
-
+    <script src="Scripts/masking.min.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
