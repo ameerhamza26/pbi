@@ -14,7 +14,7 @@
            };
 
            $(document).ready(function () {
-               $("#header").hide();
+               $("#ibp_container_bar").hide();
            });
 
     </script>
@@ -43,19 +43,20 @@
                 <td colspan="4">
                     <h2 style="font-weight: bold;">Personal Information</h2>
                 </td>
+                <td rowspan="8"><asp:Image ID="imgSD" runat="server" ImageUrl="" Width="200px" Height="200px" /></td>
             </tr>
             <tr>
-                <td style="width: 10%;">
+                <td style="width: 20%;">
                     <label>Name</label>
                 </td>
-                <td style="width: 10%; bottom: 5px; position: relative;">
+                <td style="width: 20%; bottom: 5px; position: relative;">
                     <asp:Label ID="lblName" runat="server"></asp:Label>
                 </td>
 
-                <td style="width: 10%; bottom: 4px; position: relative;">
+                <td style="width: 20%; bottom: 4px; position: relative;">
                     <label>Application ID</label>
                 </td>
-                <td style="width: 11%; bottom: 5px; position: relative;">
+                <td style="width: 21%; bottom: 5px; position: relative;">
                     <asp:Label ID="lblAppID" runat="server"></asp:Label>
                 </td>
 
@@ -472,7 +473,7 @@
             </tr>
             <tr>
                 <td>
-                    <p style="width: 250px; float: right; text-align: center; font-size: 18px; font-weight: bold; color: #000; border-top: 1px solid #000; padding-top: 15px; margin-top: 60px;">
+                    <p style="width: 250px; float: right; text-align: center; font-size: 18px; font-weight: bold; color: #000; border-top: 1px solid #000; padding-top: 15px; margin-top: 40px;">
                         Signature
                     </p>
                 </td>
@@ -579,7 +580,7 @@
                                  <span style="font-size: 18px; margin-left: 82px; font-weight:bold;height:0px;margin-bottom:15px"> 
                                     <asp:Label ID="lblIBPCNIC" runat="server"></asp:Label>
                                  </span>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; " />
                             </td>
                         </tr>
                         <tr>
@@ -588,7 +589,7 @@
                               <span style="font-size: 18px; margin-left: 72px; font-weight:bold;height:0px;margin-bottom:15px">    
                                 <asp:Label ID="lblIBPName" runat="server"></asp:Label>
                               </span>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; " />
                             </td>
                         </tr>
                         <tr>
@@ -596,14 +597,14 @@
                                 <label>Father’s Name:</label>
                                <span style="margin-left: 42px;">     
                                 <asp:Label ID="lblIBPFName" runat="server"></asp:Label>
-                               </span><hr />
+                               </span><hr style=" margin-top: 0px;  margin-bottom: 0px; " />
                             </td>
                         </tr>
                         <tr>
                             <td style="height: 35px !important;">
                                 <label>Applicant’s Address:</label>
                                 <asp:Label ID="lblIBPAddress" runat="server"></asp:Label>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; " />
                             </td>
                         </tr>
                         <tr>
@@ -612,7 +613,7 @@
                                     <tr>
                                         <td width="340px" style="height: 35px !important;">
                                             <label>Amount PKR:</label>
-                                            <label><span>1000/-</span></label><hr />
+                                            <label><span>1000/-</span></label><hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
 
 
                                         </td>
@@ -621,7 +622,7 @@
                                             <label style="width: 400px;">
                                                 Amount in Words: <span>One Thousand Rupees Only.  </span>
                                             </label>
-                                            <hr />
+                                            <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                                         </td>
                                         <td style="height: 35px !important;" width="160px">
                                             <p style="margin: 0px!important; padding: 0px!important; font-size: 10px">Non Refundable / Non Transferable</p>
@@ -800,7 +801,7 @@
                                  <span style="font-size: 18px; margin-left: 82px; font-weight:bold;height:0px;margin-bottom:15px"> 
                                     <asp:Label ID="lblACCNIC" runat="server"></asp:Label>
                                  </span>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; " />
                             </td>
                         </tr>
                         <tr>
@@ -809,7 +810,7 @@
                               <span style="font-size: 18px; margin-left: 72px; font-weight:bold;height:0px;margin-bottom:15px">    
                                 <asp:Label ID="lblACName" runat="server"></asp:Label>
                               </span>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                             </td>
                         </tr>
                         <tr>
@@ -817,14 +818,14 @@
                                 <label>Father’s Name:</label>
                                <span style="margin-left: 42px;">     
                                 <asp:Label ID="lblACFName" runat="server"></asp:Label>
-                               </span><hr />
+                               </span><hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                             </td>
                         </tr>
                         <tr>
                             <td style="height: 35px !important;">
                                 <label>Applicant’s Address:</label>
                                 <asp:Label ID="lblACAddress" runat="server"></asp:Label>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                             </td>
                         </tr>
                         <tr>
@@ -833,7 +834,7 @@
                                     <tr>
                                         <td width="340px" style="height: 35px !important;">
                                             <label>Amount PKR:</label>
-                                            <label><span>1000/-</span></label><hr />
+                                            <label><span>1000/-</span></label><hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
 
 
                                         </td>
@@ -842,7 +843,7 @@
                                             <label style="width: 400px;">
                                                 Amount in Words: <span>One Thousand Rupees Only.  </span>
                                             </label>
-                                            <hr />
+                                            <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                                         </td>
                                         <td style="height: 35px !important;" width="160px">
                                             <p style="margin: 0px!important; padding: 0px!important; font-size: 10px">Non Refundable / Non Transferable</p>
@@ -1020,7 +1021,7 @@
                                  <span style="font-size: 18px; margin-left: 82px; font-weight:bold;height:0px;margin-bottom:15px"> 
                                     <asp:Label ID="lblBCCNIC" runat="server"></asp:Label>
                                  </span>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                             </td>
                         </tr>
                         <tr>
@@ -1029,7 +1030,7 @@
                               <span style="font-size: 18px; margin-left: 72px; font-weight:bold;height:0px;margin-bottom:15px">    
                                 <asp:Label ID="lblBCName" runat="server"></asp:Label>
                               </span>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                             </td>
                         </tr>
                         <tr>
@@ -1037,14 +1038,14 @@
                                 <label>Father’s Name:</label>
                                <span style="margin-left: 42px;">     
                                 <asp:Label ID="lblBCFName" runat="server"></asp:Label>
-                               </span><hr />
+                               </span><hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                             </td>
                         </tr>
                         <tr>
                             <td style="height: 35px !important;">
                                 <label>Applicant’s Address:</label>
                                 <asp:Label ID="lblBCAddress" runat="server"></asp:Label>
-                                <hr />
+                                <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                             </td>
                         </tr>
                         <tr>
@@ -1053,7 +1054,7 @@
                                     <tr>
                                         <td width="340px" style="height: 35px !important;">
                                             <label>Amount PKR:</label>
-                                            <label><span>1000/-</span></label><hr />
+                                            <label><span>1000/-</span></label><hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
 
 
                                         </td>
@@ -1062,7 +1063,7 @@
                                             <label style="width: 400px;">
                                                 Amount in Words: <span>One Thousand Rupees Only.  </span>
                                             </label>
-                                            <hr />
+                                            <hr style=" margin-top: 0px;  margin-bottom: 0px; "/>
                                         </td>
                                         <td style="height: 35px !important;" width="160px">
                                             <p style="margin: 0px!important; padding: 0px!important; font-size: 10px">Non Refundable / Non Transferable</p>

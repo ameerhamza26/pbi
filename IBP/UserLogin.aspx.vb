@@ -46,7 +46,7 @@
             strQuery = "Update USER set Counter = 0 where Email = '" + txtEmail.Text + "'"
 
             General.DoSingleTransaction(strQuery)
-
+            Session("UserRole") = dtUser.Rows(0).Item("RoleID")
             Session("UserID") = LCase(txtEmail.Text)
 
             strQuery = "Select p.Path,r.Description from MENU m,PAGES p, ROLE r where m.PageID = p.ID "

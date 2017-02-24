@@ -7,6 +7,22 @@
             lblMessage.Visible = False
             Session("UserID") = ""
             Session("Role") = ""
+
+            Dim strQuery As String
+            Dim dt As DataTable
+            Try
+                strQuery = "select * from APPLICATION where EligibleFlag = 1 and ResultFlag = 0"
+                dt = General.FetchDataTable(strQuery)
+
+                If dt.Rows.Count > 0 Then
+                    btnRegister.Enabled = False
+                Else
+                    btnRegister.Enabled = True
+                End If
+            Catch ex As Exception
+                lblMessage.Text = ex.Message
+            End Try
+
         End If
 
     End Sub
@@ -45,7 +61,7 @@
             strQuery = "Update STUDENT_MASTER set Counter = 0 where Email = '" + txtEmail.Text + "'"
 
             General.DoSingleTransaction(strQuery)
-
+            Session("Email") = txtEmail.Text
             Session("UserID") = LCase(txtEmail.Text)
 
             Session("Role") = "Student"

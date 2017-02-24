@@ -1,4 +1,6 @@
 ﻿Imports System.IO
+Imports System.Data.SqlClient
+Imports System.Data
 
 Public Class UploadResult
     Inherits System.Web.UI.Page
@@ -8,6 +10,16 @@ Public Class UploadResult
         btnSubmit.Visible = False
         btnCancel.Visible = False
         grdResult.Visible = False
+
+        Dim dt As DataTable
+        dt = General.FetchDataTable("select * from APPLICATION where ResultFlag = '0'")
+
+        If dt.Rows.Count > 0 Then
+            btnUpload.Enabled = True
+        Else
+            btnUpload.Enabled = False
+        End If
+
 
     End Sub
 
@@ -108,6 +120,7 @@ Public Class UploadResult
 
             objFileStream = File.OpenText(Server.MapPath("Result.csv"))
             strLine = objFileStream.ReadLine()
+            strLine = objFileStream.ReadLine()
             While Not strLine Is Nothing
                 arrStrValues = Split(strLine, ",")
                 objRow = objds.Tables(0).NewRow
@@ -151,6 +164,10 @@ Public Class UploadResult
 
             General.DoMultiTransaction(strQuery)
 
+            strQuery = "Update APPLICATION Set ResultFlag = 1"
+
+            General.DoSingleTransaction(strQuery)
+            btnUpload.Enabled = False
 
         Catch ex As Exception
             lblMessage.Text = ex.Message

@@ -25,8 +25,8 @@
         Dim strQuery As String
 
         Try
-            strQuery = "Select * from ROLE where Description <> 'Student'"
-
+            'strQuery = "Select * from ROLE where Description <> 'Student'"
+            strQuery = "Select * from ROLE"
             dtRole = General.FetchDataTable(strQuery)
 
             cboRole.DataSource = dtRole
@@ -109,7 +109,6 @@
         End Try
 
     End Sub
-
 
     Private Function GetRoleDefinition() As DataTable
 

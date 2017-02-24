@@ -188,7 +188,6 @@ Public Class Profile
         End Try
     End Sub
 
-
     Protected Sub btnSubmit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSubmit.Click
 
         Dim strQuery As String

@@ -23,7 +23,7 @@
         Try
             strQuery = "Select a.ApplicationID,sd.*,ar.ExRemarks as Reason from APPLICATION a, STUDENT_DETAIL sd, APPLICATIONREMARKS ar "
             strQuery += "where a.Email = sd.Email and ar.ApplicationID = a.ApplicationID and "
-            strQuery += "ar.FinApprove = 'Y' and ar.ExApprove = 'R' and ar.ExMApprove='P' order by ApplicationID"
+            strQuery += "ar.FinApprove = 'Y' and ar.ExApprove = 'N' and ar.ExMApprove='P' order by ApplicationID"
 
             dtApplications = General.FetchDataTable(strQuery)
 

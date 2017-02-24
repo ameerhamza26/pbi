@@ -31,7 +31,7 @@
     <asp:GridView ID="grdApplications" runat="server" HeaderStyle-BackColor="#EEEEEE" HeaderStyle-HorizontalAlign= "Center"
         AutoGenerateColumns="False" CellPadding="4" ForeColor="#555555" 
         Width="1200px" BorderColor="#CCCCCC" 
-        HorizontalAlign="Center">
+        HorizontalAlign="Center" AllowPaging="true">
         <Columns>
             <asp:BoundField DataField="ApplicationID" HeaderText="ApplicationID" />
             <asp:BoundField DataField="Name" HeaderText="Name" />
@@ -42,6 +42,9 @@
             <asp:BoundField DataField="Mobile" HeaderText="Mobile" />
             <asp:BoundField DataField="FatherName" HeaderText="Father Name" />
             <asp:BoundField DataField="Remarks" HeaderText="Reason" />
+            <asp:BoundField DataField="FinApprove" HeaderText="Finance Status" />
+            <asp:BoundField DataField="ExApprove" HeaderText="EO Status" />
+            <asp:BoundField DataField="ExMApprove" HeaderText="EM Status" />
             <asp:ButtonField CommandName="View" HeaderText="View" Text="View" />
         </Columns>
 <HeaderStyle HorizontalAlign="Center" BackColor="#EEEEEE"></HeaderStyle>

@@ -55,6 +55,7 @@
 
             General.DoSingleTransaction(strQuery)
 
+            Session("Email") = txtEmail.Text
             Session("UserID") = LCase(txtEmail.Text)
             Session("Role") = "Student"
 
@@ -73,7 +74,6 @@
         End Try
 
     End Sub
-
 
     Private Sub SendPasswordViaEmail(ByVal vstrPassword As String)
 

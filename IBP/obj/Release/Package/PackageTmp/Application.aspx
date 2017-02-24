@@ -1,12 +1,14 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Application.aspx.vb" Inherits="IBP.Application" %>
 <%@ Register TagPrefix="ucDS" TagName="DateSelector" Src="DateSelector.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script src="https://cloud.github.com/downloads/digitalBush/jquery.maskedinput/jquery.maskedinput-1.3.min.js"></script>
+    
    <script type="text/javascript">
        $(function () {
            $("#MainContent_txtDOB").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -15,7 +17,7 @@
            $("#MainContent_txtMasterDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -24,7 +26,7 @@
            $("#MainContent_txtBachelorDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -33,7 +35,7 @@
            $("#MainContent_txtInterDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -42,7 +44,7 @@
            $("#MainContent_txtMatricDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -54,7 +56,219 @@
                yearRange: "1950:2015",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
-       });  
+
+           $("#MainContent_txtCNIC").mask("99999-9999999-9");
+           $("#MainContent_txtMobile").mask("+99 999-9999999");
+
+       });
+
+       $(function () {
+
+
+           $('#MainContent_txtMasterCGPA').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtMasterCGPA').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+
+           ///////
+           $('#MainContent_txtBachelorsCGPA').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtBachelorsCGPA').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+
+           ///
+           $('#MainContent_txtMasterPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtMasterPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+           ////
+           $('#MainContent_txtBachelorsPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtBachelorsPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+           /////
+
+           $('#MainContent_txtIntermediatePercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtIntermediatePercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+           ///////
+           $('#MainContent_txtMatriculationPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtMatriculationPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+           //
+           $('#MainContent_txtOtherPercentage').bind('paste', function () {
+               var self = this;
+               setTimeout(function () {
+                   if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+               }, 0);
+           });
+
+           $('#MainContent_txtOtherPercentage').keypress(function (e) {
+               console.log("key pressed")
+               var character = String.fromCharCode(e.keyCode)
+               var newValue = this.value + character;
+               if (isNaN(newValue) || hasDecimalPlace(newValue, 3)) {
+                   e.preventDefault();
+                   return false;
+               }
+           });
+
+           function hasDecimalPlace(value, x) {
+               var pointIndex = value.indexOf('.');
+               return pointIndex >= 0 && pointIndex < value.length - x;
+           }
+
+           $('#btnPrintForm2').click(function () {
+               console.log("hhelloo")
+               window.location = '/PrintAppForm.aspx';
+           })
+
+           $('#MainContent_btnViewEligibility').click(function () {
+               window.location = '/ViewEligibility.aspx';
+           })
+
+           
+           $('#MainContent_btnViewResult').click(function () {
+               window.location = '/ViewResult.aspx';
+           })
+           console.log("val of txt is", $('#MainContent_sampleRowCount').val())
+           if ($('#MainContent_sampleRowCount').val() == 0) {
+               console.log("in zeor")
+               $('#btnPrintForm2').prop('disabled', true)
+           }
+           else {
+               $('#btnPrintForm2').prop('disabled', false)
+           }
+
+           $('#MainContent_fuDoc1').hide();
+           $('#MainContent_txtDocs1').hide();
+           $('#MainContent_fuDoc2').hide();
+           $('#MainContent_txtDocs2').hide();
+           $('#MainContent_fuDoc3').hide();
+           $('#MainContent_txtDocs3').hide();
+           $('#AddDocButton').click(function () {
+               console.log("res")
+               var val = $('#MainContent_sessionIdDoc').val()
+               if (val < 4) {
+                   val = +val + 1;
+               }
+
+               if (val == 2) {
+                   $('#MainContent_fuDoc1').show();
+                   $('#MainContent_txtDocs1').show();
+               }
+
+               if (val == 3) {
+                   $('#MainContent_fuDoc2').show();
+                   $('#MainContent_txtDocs2').show();
+               }
+
+               if (val == 4) {
+                   $('#MainContent_fuDoc3').show();
+                   $('#MainContent_txtDocs3').show();
+               }
+               $('#MainContent_sessionIdDoc').val(val)
+           })
+
+           $('#RemoveDocButton').click(function () {
+               var val = $('#MainContent_sessionIdDoc').val()
+               if (val > 1) {
+                   val = +val - 1;
+               }
+               if (val == 1) {
+                   $('#MainContent_fuDoc1').hide();
+                   $('#MainContent_txtDocs1').hide();
+               }
+
+               if (val == 2) {
+                   $('#MainContent_fuDoc2').hide();
+                   $('#MainContent_txtDocs2').hide();
+               }
+
+               if (val == 3) {
+                   $('#MainContent_fuDoc3').hide();
+                   $('#MainContent_txtDocs3').hide();
+               }
+               $('#MainContent_sessionIdDoc').val(val)
+           })
+       });
 
 
    </script>
@@ -69,7 +283,7 @@
                           <asp:RequiredFieldValidator  Font-Bold="true" ForeColor="Red" ID="RequiredFieldValidatorNAme"  ControlToValidate="txtName" Display="Dynamic" runat="server" ErrorMessage="Name is Required"></asp:RequiredFieldValidator>
                         <div class="form-group">                           
                             <label>Name *</label>
-                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ></asp:TextBox>
                           <%--  <label style="position: absolute; font-size: 11px; top: 59px;">(Please enter your name as per your CNIC)</label>--%>
                        
                         </div>
@@ -86,7 +300,8 @@
                         <asp:RequiredFieldValidator  Font-Bold="true" ForeColor="Red" ID="RequiredFieldValidatorCnic" Display="Dynamic"  ControlToValidate="txtCNIC" runat="server" ErrorMessage="CNIC is Required"></asp:RequiredFieldValidator>
                         <div class="form-group">                            
                             <label>CNIC *</label>
-                            <asp:TextBox ID="txtCNIC" runat="server" CssClass="form-control txtCNIC"></asp:TextBox>
+                            <asp:TextBox ID="txtCNIC"  runat="server" CssClass="form-control txtCNIC"></asp:TextBox>
+                            <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidatorCnic" runat="server" ErrorMessage="The CNIC must be in correct format e.g xxxxx-xxxxxxx-x" ForeColor="Red" Font-Bold="true" ControlToValidate="txtCNIC" ValidationExpression="^\d{5}-\d{7}-\d{1}$" ></asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -171,23 +386,27 @@
                             <label>State Bank Employe: *</label>
                                 <table class="radio">
                             	    <tr>
-		                                <td><asp:RadioButton ID="RadioButtonSBPYES" runat="server" CssClass="radio" GroupName="SBP" Text="YES" OnCheckedChanged="RadioButtonSBPYES_CheckedChanged" AutoPostBack="true" /></td>
+		                                <td><asp:RadioButton Checked="true" ID="RadioButtonSBPYES" runat="server"  CssClass="radio" GroupName="SBP" Text="Yes" AutoPostBack="true" OnCheckedChanged="RadioButtonSBPYES_CheckedChanged" /></td>
 	                                </tr>
                                     <tr>
-		                                <td><asp:RadioButton ID="RadioButtonSBPNO" Checked="true" runat="server" CssClass="radio" GroupName="SBP" Text="NO"  OnCheckedChanged="RadioButtonSBPYES_CheckedChanged" AutoPostBack="true"/></td>
+		                                <td><asp:RadioButton  ID="RadioButtonSBPNO"  runat="server"  CssClass="radio" GroupName="SBP" Text="No"  AutoPostBack="true" OnCheckedChanged="RadioButtonSBPNO_CheckedChanged1"/></td>
 	                                </tr>
                                 </table>                        </div>
                     </div>
 
                    <div class="col-sm-3">
+                         <asp:RequiredFieldValidator Font-Bold="true" ForeColor="Red" ID="txtPinNoValidator" Display="Dynamic"  ControlToValidate="txtPinNo"  runat="server" ErrorMessage="Pin No is Required"></asp:RequiredFieldValidator>
+                      
                         <div class="form-group">
+                             
                             <label>Pin No </label>
                             <asp:TextBox Enabled="false" ID="txtPinNo" runat="server" CssClass="form-control" ></asp:TextBox>
-                        
-                        </div>
+                             </div>
                     </div>
 
                     <div class="col-sm-3">
+                         <asp:RequiredFieldValidator Font-Bold="true" ForeColor="Red" ID="txtDesigValidator1" Display="Dynamic"  ControlToValidate="txtDesig"  runat="server" ErrorMessage="Designation is Required" Enabled="true"></asp:RequiredFieldValidator>
+                      
                         <div class="form-group">
                             <label>Designation</label>
                             <asp:TextBox Enabled="false" ID="txtDesig" runat="server" CssClass="form-control" ></asp:TextBox>
@@ -203,6 +422,8 @@
                     </div>
 
                     <div class="col-sm-3">
+                         <asp:RequiredFieldValidator Font-Bold="true" ForeColor="Red" ID="txtGradeValidator1" Display="Dynamic"  ControlToValidate="txtGrade"  runat="server" ErrorMessage="Grade is Required" Enabled="true"></asp:RequiredFieldValidator>
+                      
                         <div class="form-group">
                             <label>Grade</label>
                             <asp:TextBox Enabled="false" ID="txtGrade" runat="server" CssClass="form-control" ></asp:TextBox>
@@ -248,7 +469,7 @@
                         <div class="form-group">
                             
                             <label>Image </label>
-                            <asp:FileUpload ID="fuImage" runat="server"  CssClass="form-control image-upload" />
+                            <asp:FileUpload ID="fuImage" runat="server"  CssClass="form-control image-upload" AllowMultiple="true" />
                             <span>(600w x 550)</span>
                         </div>
 
@@ -266,8 +487,10 @@
                         <asp:TextBox ID="txtDocs2" runat="server" CssClass="form-control"></asp:TextBox>
                         <asp:FileUpload ID="fuDoc3" runat="server" CssClass="form-control image-upload"/>
                         <asp:TextBox ID="txtDocs3" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:Button ID="btnAddDocs" runat="server" Text="Add Document" CssClass="btn-sm" />
-                        <asp:Button ID="btnRemoveDoc" runat="server" Text="Remove Document" CssClass="btn-sm" />
+                        <asp:Button ID="btnAddDocs" runat="server" Text="Add Document" CssClass="btn-sm" hidden/>
+                        <input type="button" id="AddDocButton" value="Add Document" class="btn-sm" />
+                        <input type="button" id="RemoveDocButton" value="Remove Document" class="btn-sm" />
+                        <asp:Button ID="btnRemoveDoc" runat="server" Text="Remove Document" CssClass="btn-sm" hidden/>
                     </div>
                 </div>
 
@@ -330,7 +553,7 @@
                                 </div>
                                 <div class="col-sm-6 master-other-container">
                                     <div class="form-group ">
-                                        <asp:TextBox ID="txtOtherMaster" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtOtherMaster" runat="server" CssClass="form-control test"></asp:TextBox>
                                     </div>
                                 </div>
                             </td>
@@ -682,8 +905,41 @@
             <div class="col-sm-12" style="text-align: center;">
                 <div class="messagebox">
                     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="alert alert-danger"></asp:Label></div>
-                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btnSubmit" />
-                 <asp:Button ID="btnPrintForm" runat="server" Text="Print Form" 
-                    CssClass="btn btn-primary btnCancel" />
-            </div>            <br />            <br /></div>
+                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btnSubmit"  />
+               <asp:Button ID="btnPrintForm" runat="server" Text="Print Form" 
+                    CssClass="btn btn-primary btnCancel" Visible="False" />
+              
+                <input type="button" value="Print Form" class="btn btn-primary btnCancel" id="btnPrintForm2"/>
+                  <asp:Button ID="btnViewEligibility" runat="server" Text="View Eligibility" CssClass="btn btn-primary" />
+                <asp:Button ID="btnViewResult" runat="server" Text="View Result" CssClass="btn btn-primary" />
+                <asp:TextBox ID="sampleRowCount" runat="server" hidden></asp:TextBox>
+                <asp:TextBox ID="sessionIdDoc" runat="server" hidden></asp:TextBox>
+            </div>            <br />            <br />
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close" onclick="closemodal()">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+<div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4 class="modal-title">Application is successfully submitted!</h4>
+        </div>
+        <div class="modal-footer" style="margin-top: 0px;">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closemodal()">Close</button>
+        </div>
+      </div>
+</div></div>
+    <script>
+        function showmodal() {
+            console.log("in modal")
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+        }
+    </script>
 </asp:Content>
+

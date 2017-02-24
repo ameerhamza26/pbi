@@ -8,7 +8,7 @@
            $("#MainContent_txtDOB").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -17,7 +17,7 @@
            $("#MainContent_txtMasterDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -26,7 +26,7 @@
            $("#MainContent_txtBachelorDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -35,7 +35,7 @@
            $("#MainContent_txtInterDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -44,7 +44,7 @@
            $("#MainContent_txtMatricDOP").datepicker({
                changeMonth: true,
                changeYear: true,
-               yearRange: "1950:2015",
+               yearRange: "1950:2050",
                dateFormat: "dd-mm-yy"
            }).attr('readonly', 'true');
        });
@@ -58,7 +58,7 @@
            }).attr('readonly', 'true');
 
            $("#MainContent_txtCNIC").mask("99999-9999999-9");
-           $("#MainContent_txtMobile").mask("999-9999999");
+           $("#MainContent_txtMobile").mask("+99 999-9999999");
 
        });
 
@@ -194,6 +194,80 @@
                var pointIndex = value.indexOf('.');
                return pointIndex >= 0 && pointIndex < value.length - x;
            }
+
+           $('#btnPrintForm2').click(function () {
+               console.log("hhelloo")
+               window.location = '/PrintAppForm.aspx';
+           })
+
+           $('#MainContent_btnViewEligibility').click(function () {
+               window.location = '/ViewEligibility.aspx';
+           })
+
+           
+           $('#MainContent_btnViewResult').click(function () {
+               window.location = '/ViewResult.aspx';
+           })
+           console.log("val of txt is", $('#MainContent_sampleRowCount').val())
+           if ($('#MainContent_sampleRowCount').val() == 0) {
+               console.log("in zeor")
+               $('#btnPrintForm2').prop('disabled', true)
+           }
+           else {
+               $('#btnPrintForm2').prop('disabled', false)
+           }
+
+           $('#MainContent_fuDoc1').hide();
+           $('#MainContent_txtDocs1').hide();
+           $('#MainContent_fuDoc2').hide();
+           $('#MainContent_txtDocs2').hide();
+           $('#MainContent_fuDoc3').hide();
+           $('#MainContent_txtDocs3').hide();
+           $('#AddDocButton').click(function () {
+               console.log("res")
+               var val = $('#MainContent_sessionIdDoc').val()
+               if (val < 4) {
+                   val = +val + 1;
+               }
+
+               if (val == 2) {
+                   $('#MainContent_fuDoc1').show();
+                   $('#MainContent_txtDocs1').show();
+               }
+
+               if (val == 3) {
+                   $('#MainContent_fuDoc2').show();
+                   $('#MainContent_txtDocs2').show();
+               }
+
+               if (val == 4) {
+                   $('#MainContent_fuDoc3').show();
+                   $('#MainContent_txtDocs3').show();
+               }
+               $('#MainContent_sessionIdDoc').val(val)
+           })
+
+           $('#RemoveDocButton').click(function () {
+               var val = $('#MainContent_sessionIdDoc').val()
+               if (val > 1) {
+                   val = +val - 1;
+               }
+               if (val == 1) {
+                   $('#MainContent_fuDoc1').hide();
+                   $('#MainContent_txtDocs1').hide();
+               }
+
+               if (val == 2) {
+                   $('#MainContent_fuDoc2').hide();
+                   $('#MainContent_txtDocs2').hide();
+               }
+
+               if (val == 3) {
+                   $('#MainContent_fuDoc3').hide();
+                   $('#MainContent_txtDocs3').hide();
+               }
+               $('#MainContent_sessionIdDoc').val(val)
+           })
        });
 
 
@@ -268,7 +342,6 @@
                         <div class="form-group">                            
                             <label>Mobile No*</label>
                             <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control"></asp:TextBox>
-                 <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator1" runat="server" ErrorMessage="The Mobile No must be in correct format e.g xxxxx-xxxxxxx-x" ForeColor="Red" Font-Bold="true" ControlToValidate="txtMobile" ValidationExpression="^\d{3}-\d{7}$" ></asp:RegularExpressionValidator>
                         </div>
                     </div>
 
@@ -322,14 +395,18 @@
                     </div>
 
                    <div class="col-sm-3">
+                         <asp:RequiredFieldValidator Font-Bold="true" ForeColor="Red" ID="txtPinNoValidator" Display="Dynamic"  ControlToValidate="txtPinNo"  runat="server" ErrorMessage="Pin No is Required"></asp:RequiredFieldValidator>
+                      
                         <div class="form-group">
+                             
                             <label>Pin No </label>
                             <asp:TextBox Enabled="false" ID="txtPinNo" runat="server" CssClass="form-control" ></asp:TextBox>
-                        
-                        </div>
+                             </div>
                     </div>
 
                     <div class="col-sm-3">
+                         <asp:RequiredFieldValidator Font-Bold="true" ForeColor="Red" ID="txtDesigValidator1" Display="Dynamic"  ControlToValidate="txtDesig"  runat="server" ErrorMessage="Designation is Required" Enabled="true"></asp:RequiredFieldValidator>
+                      
                         <div class="form-group">
                             <label>Designation</label>
                             <asp:TextBox Enabled="false" ID="txtDesig" runat="server" CssClass="form-control" ></asp:TextBox>
@@ -345,6 +422,8 @@
                     </div>
 
                     <div class="col-sm-3">
+                         <asp:RequiredFieldValidator Font-Bold="true" ForeColor="Red" ID="txtGradeValidator1" Display="Dynamic"  ControlToValidate="txtGrade"  runat="server" ErrorMessage="Grade is Required" Enabled="true"></asp:RequiredFieldValidator>
+                      
                         <div class="form-group">
                             <label>Grade</label>
                             <asp:TextBox Enabled="false" ID="txtGrade" runat="server" CssClass="form-control" ></asp:TextBox>
@@ -390,7 +469,7 @@
                         <div class="form-group">
                             
                             <label>Image </label>
-                            <asp:FileUpload ID="fuImage" runat="server"  CssClass="form-control image-upload" />
+                            <asp:FileUpload ID="fuImage" runat="server"  CssClass="form-control image-upload" AllowMultiple="true" />
                             <span>(600w x 550)</span>
                         </div>
 
@@ -408,8 +487,10 @@
                         <asp:TextBox ID="txtDocs2" runat="server" CssClass="form-control"></asp:TextBox>
                         <asp:FileUpload ID="fuDoc3" runat="server" CssClass="form-control image-upload"/>
                         <asp:TextBox ID="txtDocs3" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:Button ID="btnAddDocs" runat="server" Text="Add Document" CssClass="btn-sm" />
-                        <asp:Button ID="btnRemoveDoc" runat="server" Text="Remove Document" CssClass="btn-sm" />
+                        <asp:Button ID="btnAddDocs" runat="server" Text="Add Document" CssClass="btn-sm" hidden/>
+                        <input type="button" id="AddDocButton" value="Add Document" class="btn-sm" />
+                        <input type="button" id="RemoveDocButton" value="Remove Document" class="btn-sm" />
+                        <asp:Button ID="btnRemoveDoc" runat="server" Text="Remove Document" CssClass="btn-sm" hidden/>
                     </div>
                 </div>
 
@@ -824,9 +905,41 @@
             <div class="col-sm-12" style="text-align: center;">
                 <div class="messagebox">
                     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="alert alert-danger"></asp:Label></div>
-                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btnSubmit" />
-                 <asp:Button ID="btnPrintForm" runat="server" Text="Print Form" 
-                    CssClass="btn btn-primary btnCancel" />
-            </div>            <br />            <br /></div>
-   
+                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btnSubmit"  />
+               <asp:Button ID="btnPrintForm" runat="server" Text="Print Form" 
+                    CssClass="btn btn-primary btnCancel" Visible="False" />
+              
+                <input type="button" value="Print Form" class="btn btn-primary btnCancel" id="btnPrintForm2"/>
+                  <asp:Button ID="btnViewEligibility" runat="server" Text="View Eligibility" CssClass="btn btn-primary" />
+                <asp:Button ID="btnViewResult" runat="server" Text="View Result" CssClass="btn btn-primary" />
+                <asp:TextBox ID="sampleRowCount" runat="server" hidden></asp:TextBox>
+                <asp:TextBox ID="sessionIdDoc" runat="server" hidden></asp:TextBox>
+            </div>            <br />            <br />
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close" onclick="closemodal()">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+<div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4 class="modal-title">Application is successfully submitted!</h4>
+        </div>
+        <div class="modal-footer" style="margin-top: 0px;">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closemodal()">Close</button>
+        </div>
+      </div>
+</div></div>
+    <script>
+        function showmodal() {
+            console.log("in modal")
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+        }
+    </script>
 </asp:Content>
+

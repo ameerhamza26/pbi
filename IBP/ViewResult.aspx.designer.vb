@@ -23,6 +23,60 @@ Partial Public Class ViewResult
     Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblName As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''imgSD control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgSD As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''lblFatherName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFatherName As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblCNIC control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblCNIC As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblAddress control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAddress As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblCellNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblCellNo As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''grdResult control.
     '''</summary>
     '''<remarks>

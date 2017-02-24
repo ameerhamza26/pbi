@@ -167,15 +167,6 @@ Partial Public Class Application
     Protected WithEvents txtMobile As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''RegularExpressionValidator1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
-    '''<summary>
     '''txtEG control.
     '''</summary>
     '''<remarks>
@@ -248,6 +239,15 @@ Partial Public Class Application
     Protected WithEvents RadioButtonSBPNO As Global.System.Web.UI.WebControls.RadioButton
 
     '''<summary>
+    '''txtPinNoValidator control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPinNoValidator As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''txtPinNo control.
     '''</summary>
     '''<remarks>
@@ -255,6 +255,15 @@ Partial Public Class Application
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPinNo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDesigValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDesigValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtDesig control.
@@ -273,6 +282,15 @@ Partial Public Class Application
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cboCitySbe As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''txtGradeValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtGradeValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtGrade control.
@@ -912,4 +930,49 @@ Partial Public Class Application
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnPrintForm As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnViewEligibility control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnViewEligibility As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnViewResult control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnViewResult As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''sampleRowCount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sampleRowCount As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''sessionIdDoc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sessionIdDoc As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ValidationSummary1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ValidationSummary1 As Global.System.Web.UI.WebControls.ValidationSummary
 End Class

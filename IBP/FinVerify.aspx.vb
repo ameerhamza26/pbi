@@ -21,7 +21,7 @@
 
         Try
             strQuery = "Select a.ApplicationID,sd.* from APPLICATION a, STUDENT_DETAIL sd, APPLICATIONREMARKS ar "
-            strQuery += "where a.Email = sd.Email and ar.ApplicationID = a.ApplicationID and "
+            strQuery += "where a.Email = sd.Email and ar.ApplicationID = a.ApplicationID and a.EligibleFlag ='0' and "
             strQuery += "ar.FinApprove = 'P' order by ApplicationID"
 
             dtApplications = General.FetchDataTable(strQuery)

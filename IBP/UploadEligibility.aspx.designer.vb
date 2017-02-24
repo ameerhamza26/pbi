@@ -23,13 +23,13 @@ Partial Public Class UploadEligibility
     Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''fuResult control.
+    '''btnFetch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fuResult As Global.System.Web.UI.WebControls.FileUpload
+    Protected WithEvents btnFetch As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''btnUpload control.
@@ -39,6 +39,15 @@ Partial Public Class UploadEligibility
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnUpload As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''grdApplications control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdApplications As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''grdResult control.

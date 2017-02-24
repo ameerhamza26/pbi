@@ -7,3 +7,39 @@ E:\Projects\IBP\IBP\obj\Release\IBP.vbproj.GenerateResource.Cache
 E:\Projects\IBP\IBP\obj\Release\IBP.dll
 E:\Projects\IBP\IBP\obj\Release\IBP.xml
 E:\Projects\IBP\IBP\obj\Release\IBP.pdb
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\bin\IBP.dll.config
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\bin\IBP.dll
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\bin\IBP.pdb
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\bin\IBP.xml
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\bin\log4net.dll
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\bin\mysql.data.dll
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\bin\log4net.xml
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\obj\Release\IBP.Resources.resources
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\obj\Release\IBP.vbproj.GenerateResource.Cache
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\obj\Release\IBP.dll
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\obj\Release\IBP.xml
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\obj\Release\IBP.pdb
+C:\Users\Mudassir Ali\Documents\Visual Studio 2015\Projects\IBP\IBP\obj\Release\IBP.vbprojResolveAssemblyReference.cache
+E:\Office\IBP\IBP\bin\IBP.dll
+E:\Office\IBP\IBP\bin\IBP.pdb
+E:\Office\IBP\IBP\bin\IBP.xml
+E:\Office\IBP\IBP\bin\log4net.dll
+E:\Office\IBP\IBP\bin\log4net.xml
+E:\Office\IBP\IBP\obj\Release\IBP.vbprojResolveAssemblyReference.cache
+E:\Office\IBP\IBP\obj\Release\IBP.Resources.resources
+E:\Office\IBP\IBP\obj\Release\IBP.vbproj.GenerateResource.Cache
+E:\Office\IBP\IBP\obj\Release\IBP.dll
+E:\Office\IBP\IBP\obj\Release\IBP.xml
+E:\Office\IBP\IBP\obj\Release\IBP.pdb
+D:\IBP_Latest\IBP\IBP\bin\IBP.dll.config
+D:\IBP_Latest\IBP\IBP\bin\IBP.dll
+D:\IBP_Latest\IBP\IBP\bin\IBP.pdb
+D:\IBP_Latest\IBP\IBP\bin\IBP.xml
+D:\IBP_Latest\IBP\IBP\bin\log4net.dll
+D:\IBP_Latest\IBP\IBP\bin\log4net.xml
+D:\IBP_Latest\IBP\IBP\obj\Release\IBP.vbprojResolveAssemblyReference.cache
+D:\IBP_Latest\IBP\IBP\obj\Release\IBP.Resources.resources
+D:\IBP_Latest\IBP\IBP\obj\Release\IBP.vbproj.GenerateResource.Cache
+D:\IBP_Latest\IBP\IBP\obj\Release\IBP.dll
+D:\IBP_Latest\IBP\IBP\obj\Release\IBP.xml
+D:\IBP_Latest\IBP\IBP\obj\Release\IBP.pdb

@@ -1,4 +1,5 @@
-﻿Imports System.Globalizations
+﻿Imports System.Globalization
+Imports System.Globalizations
 Public Class Application
     Inherits System.Web.UI.Page
 
@@ -20,6 +21,11 @@ Public Class Application
                 txtDesig.Enabled = True
                 cboCitySbe.Enabled = True
                 txtGrade.Enabled = True
+                txtPinNoValidator.Enabled = True
+                txtDesigValidator1.Enabled = True
+                txtGradeValidator1.Enabled = True
+
+
                 txtEmail.Text = Session("UserID")
                 LoadReligion()
                 LoadDomicileRegion()
@@ -30,8 +36,8 @@ Public Class Application
                 LoadCityofSBP()
 
                 Session("Doc") = 1
+                sessionIdDoc.Text = Session("Doc")
                 ToggleDocs()
-
 
             End If
 
@@ -304,7 +310,7 @@ Public Class Application
         Try
             strQuery = "Select * from STUDENT_DETAIL where Email = '" + txtEmail.Text + "'"
             dtSD = General.FetchDataTable(strQuery)
-
+            sampleRowCount.Text = dtSD.Rows.Count.ToString()
             If dtSD.Rows.Count > 0 Then
 
                 txtName.Text = dtSD.Rows(0).Item("Name")
@@ -356,88 +362,104 @@ Public Class Application
                     btnSubmit.Enabled = False
                     btnPrintForm.Enabled = True
                     cbDeclaration.Enabled = False
-                    
 
-                    cboMaster.SelectedValue = dtSD.Rows(0).Item("MasterID")
-                    txtMasterSubject.Text = dtSD.Rows(0).Item("MasterSubject")
-                    cboMasterUniversity.SelectedValue = dtSD.Rows(0).Item("MasterUniversityID")
-                    cboMasterGPA.SelectedValue = dtSD.Rows(0).Item("MasterCGPAID")
-                    If String.IsNullOrEmpty(txtMasterCGPA.Text) Then
-                        txtMasterCGPA.Text = dtSD.Rows(0).Item("MasterCGPAOBT")
+                    If dtSD.Rows(0).Item("EligibleFlag") = 1 Then
+                        btnViewEligibility.Visible = True
                     Else
-                        txtMasterCGPA.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("MasterCGPAOBT")), 2)
-                    End If
-                    txtMasterTM.Text = dtSD.Rows(0).Item("MasterTotalMarks")
-                    txtMasterMO.Text = dtSD.Rows(0).Item("MasterMarksOBT")
-                    If String.IsNullOrEmpty(txtMasterPercentage.Text) Then
-                        txtMasterPercentage.Text = dtSD.Rows(0).Item("MasterPercentage")
-                    Else
-                        txtMasterPercentage.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("MasterPercentage")), 2)
+                        btnViewEligibility.Visible = False
                     End If
 
-                    If Not IsDBNull(dtSD.Rows(0).Item("MasterDateDeclare")) Then
-                        txtMasterDOP.Text = Format(CDate(dtSD.Rows(0).Item("MasterDateDeclare")), "dd-MM-yyyy")
-                    End If
+                    Dim dt As DataTable
+                    strQuery = "Select * from APPLICATION where ApplicationID = '" + dtSD.Rows(0).Item("ApplicationID") + "' and ResultFlag = 1"
+                    dt = General.FetchDataTable(strQuery)
+                    If dt.Rows.Count > 0 Then
+                            btnViewResult.Visible = True
+                        Else
+                            btnViewResult.Visible = False
+                        End If
 
-                    cboBachelors.SelectedValue = dtSD.Rows(0).Item("BachelorID")
-                    txtBachelorSubject.Text = dtSD.Rows(0).Item("BachelorSubject")
-                    cboBachelorsUniversity.SelectedValue = dtSD.Rows(0).Item("BachelorUniversityID")
-                    cboBachelorsGPA.SelectedValue = dtSD.Rows(0).Item("BachelorCGPAID")
-                    If String.IsNullOrEmpty(txtBachelorsCGPA.Text) Then
-                        txtMasterCGPA.Text = dtSD.Rows(0).Item("MasterCGPAOBT")
-                    Else
-                        txtMasterCGPA.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("MasterCGPAOBT")), 2)
-                    End If
+                        cboMaster.SelectedValue = dtSD.Rows(0).Item("MasterID")
+                        txtMasterSubject.Text = dtSD.Rows(0).Item("MasterSubject")
+                        cboMasterUniversity.SelectedValue = dtSD.Rows(0).Item("MasterUniversityID")
+                        cboMasterGPA.SelectedValue = dtSD.Rows(0).Item("MasterCGPAID")
+                        If String.IsNullOrEmpty(txtMasterCGPA.Text) Then
+                            txtMasterCGPA.Text = dtSD.Rows(0).Item("MasterCGPAOBT")
+                        Else
+                            txtMasterCGPA.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("MasterCGPAOBT")), 2)
+                        End If
+                        txtMasterTM.Text = dtSD.Rows(0).Item("MasterTotalMarks")
+                        txtMasterMO.Text = dtSD.Rows(0).Item("MasterMarksOBT")
+                        If String.IsNullOrEmpty(txtMasterPercentage.Text) Then
+                            txtMasterPercentage.Text = dtSD.Rows(0).Item("MasterPercentage")
+                        Else
+                            txtMasterPercentage.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("MasterPercentage")), 2)
+                        End If
 
-                    txtBachelorsTM.Text = dtSD.Rows(0).Item("BachelorTotalMarks")
-                    txtBachelorsMO.Text = dtSD.Rows(0).Item("BachelorMarksOBT")
-                    If String.IsNullOrEmpty(txtBachelorsPercentage.Text) Then
-                        txtBachelorsPercentage.Text = dtSD.Rows(0).Item("BachelorPercentage")
-                    Else
-                        txtBachelorsPercentage.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("BachelorPercentage")), 2)
-                    End If
+                        If Not IsDBNull(dtSD.Rows(0).Item("MasterDateDeclare")) Then
+                            txtMasterDOP.Text = Format(CDate(dtSD.Rows(0).Item("MasterDateDeclare")), "dd-MM-yyyy")
+                        End If
 
-                    If Not IsDBNull(dtSD.Rows(0).Item("BachelorDateDeclare")) Then
-                        txtBachelorDOP.Text = Format(CDate(dtSD.Rows(0).Item("BachelorDateDeclare")), "dd-MM-yyyy")
-                    End If
+                        cboBachelors.SelectedValue = dtSD.Rows(0).Item("BachelorID")
+                        txtBachelorSubject.Text = dtSD.Rows(0).Item("BachelorSubject")
+                        cboBachelorsUniversity.SelectedValue = dtSD.Rows(0).Item("BachelorUniversityID")
+                        cboBachelorsGPA.SelectedValue = dtSD.Rows(0).Item("BachelorCGPAID")
+                        If String.IsNullOrEmpty(txtBachelorsCGPA.Text) Then
+                            txtMasterCGPA.Text = dtSD.Rows(0).Item("MasterCGPAOBT")
+                        Else
+                            txtMasterCGPA.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("MasterCGPAOBT")), 2)
+                        End If
 
-                    cboIntermediate.SelectedValue = dtSD.Rows(0).Item("IntermediateID")
-                    txtIntermediateSubject.Text = dtSD.Rows(0).Item("IntermediateSubject")
-                    cboIntermediateBoard.SelectedValue = dtSD.Rows(0).Item("IntermediateBoardID")
-                    txtIntermediateTM.Text = dtSD.Rows(0).Item("IntermediateTotalMarks")
-                    txtIntermediateMO.Text = dtSD.Rows(0).Item("IntermediateMarksOBT")
-                    txtIntermediatePercentage.Text = dtSD.Rows(0).Item("IntermediatePercentage")
-                    If Not IsDBNull(dtSD.Rows(0).Item("IntermediateDateDeclare")) Then
-                        txtInterDOP.Text = Format(CDate(dtSD.Rows(0).Item("IntermediateDateDeclare")), "dd-MM-yyyy")
-                    End If
+                        txtBachelorsTM.Text = dtSD.Rows(0).Item("BachelorTotalMarks")
+                        txtBachelorsMO.Text = dtSD.Rows(0).Item("BachelorMarksOBT")
+                        If String.IsNullOrEmpty(txtBachelorsPercentage.Text) Then
+                            txtBachelorsPercentage.Text = dtSD.Rows(0).Item("BachelorPercentage")
+                        Else
+                            txtBachelorsPercentage.Text = Math.Round(Double.Parse(dtSD.Rows(0).Item("BachelorPercentage")), 2)
+                        End If
 
-                    cboMatriculation.SelectedValue = dtSD.Rows(0).Item("MatricID")
-                    txtMatriculationSubject.Text = dtSD.Rows(0).Item("MatricSubject")
-                    cboMatriculationBoard.SelectedValue = dtSD.Rows(0).Item("MatricBoardID")
-                    txtMatriculationTM.Text = dtSD.Rows(0).Item("MatricTotalMarks")
-                    txtMatriculationMO.Text = dtSD.Rows(0).Item("MatricMarksOBT")
-                    txtMatriculationPercentage.Text = dtSD.Rows(0).Item("MatricPercentage")
-                    If Not IsDBNull(dtSD.Rows(0).Item("MatricDateDeclare")) Then
-                        txtMatricDOP.Text = Format(CDate(dtSD.Rows(0).Item("MatricDateDeclare")), "dd-MM-yyyy")
-                    End If
+                        If Not IsDBNull(dtSD.Rows(0).Item("BachelorDateDeclare")) Then
+                            txtBachelorDOP.Text = Format(CDate(dtSD.Rows(0).Item("BachelorDateDeclare")), "dd-MM-yyyy")
+                        End If
 
-                    cboOtherQualification.SelectedValue = dtSD.Rows(0).Item("OtherID")
-                    txtOtherSubject.Text = dtSD.Rows(0).Item("OtherSubject")
-                    cboOtherUniversity.SelectedValue = dtSD.Rows(0).Item("OtherUniversityID")
-                    cboOtherGPA.SelectedValue = dtSD.Rows(0).Item("OtherCGPAID")
-                    txtOtherCGPA.Text = dtSD.Rows(0).Item("OtherCGPAOBT")
-                    txtOtherTM.Text = dtSD.Rows(0).Item("OtherTotalMarks")
-                    txtOtherMO.Text = dtSD.Rows(0).Item("OtherMarksOBT")
-                    txtOtherPercentage.Text = dtSD.Rows(0).Item("OtherPercentage")
-                    If Not IsDBNull(dtSD.Rows(0).Item("OtherDateDeclare")) Then
-                        txtOtherDOP.Text = Format(CDate(dtSD.Rows(0).Item("OtherDateDeclare")), "dd-MM-yyyy")
-                    End If
-                    cboPreference.SelectedValue = dtSD.Rows(0).Item("PreferenceID")
+                        cboIntermediate.SelectedValue = dtSD.Rows(0).Item("IntermediateID")
+                        txtIntermediateSubject.Text = dtSD.Rows(0).Item("IntermediateSubject")
+                        cboIntermediateBoard.SelectedValue = dtSD.Rows(0).Item("IntermediateBoardID")
+                        txtIntermediateTM.Text = dtSD.Rows(0).Item("IntermediateTotalMarks")
+                        txtIntermediateMO.Text = dtSD.Rows(0).Item("IntermediateMarksOBT")
+                        txtIntermediatePercentage.Text = dtSD.Rows(0).Item("IntermediatePercentage")
+                        If Not IsDBNull(dtSD.Rows(0).Item("IntermediateDateDeclare")) Then
+                            txtInterDOP.Text = Format(CDate(dtSD.Rows(0).Item("IntermediateDateDeclare")), "dd-MM-yyyy")
+                        End If
+
+                        cboMatriculation.SelectedValue = dtSD.Rows(0).Item("MatricID")
+                        txtMatriculationSubject.Text = dtSD.Rows(0).Item("MatricSubject")
+                        cboMatriculationBoard.SelectedValue = dtSD.Rows(0).Item("MatricBoardID")
+                        txtMatriculationTM.Text = dtSD.Rows(0).Item("MatricTotalMarks")
+                        txtMatriculationMO.Text = dtSD.Rows(0).Item("MatricMarksOBT")
+                        txtMatriculationPercentage.Text = dtSD.Rows(0).Item("MatricPercentage")
+                        If Not IsDBNull(dtSD.Rows(0).Item("MatricDateDeclare")) Then
+                            txtMatricDOP.Text = Format(CDate(dtSD.Rows(0).Item("MatricDateDeclare")), "dd-MM-yyyy")
+                        End If
+
+                        cboOtherQualification.SelectedValue = dtSD.Rows(0).Item("OtherID")
+                        txtOtherSubject.Text = dtSD.Rows(0).Item("OtherSubject")
+                        cboOtherUniversity.SelectedValue = dtSD.Rows(0).Item("OtherUniversityID")
+                        cboOtherGPA.SelectedValue = dtSD.Rows(0).Item("OtherCGPAID")
+                        txtOtherCGPA.Text = dtSD.Rows(0).Item("OtherCGPAOBT")
+                        txtOtherTM.Text = dtSD.Rows(0).Item("OtherTotalMarks")
+                        txtOtherMO.Text = dtSD.Rows(0).Item("OtherMarksOBT")
+                        txtOtherPercentage.Text = dtSD.Rows(0).Item("OtherPercentage")
+                        If Not IsDBNull(dtSD.Rows(0).Item("OtherDateDeclare")) Then
+                            txtOtherDOP.Text = Format(CDate(dtSD.Rows(0).Item("OtherDateDeclare")), "dd-MM-yyyy")
+                        End If
+                        cboPreference.SelectedValue = dtSD.Rows(0).Item("PreferenceID")
 
                 End If
-            Else
-                btnPrintForm.Enabled = False
-            End If
+                Else
+                    btnPrintForm.Enabled = False
+                    btnViewResult.Visible = False
+                    btnViewEligibility.Visible = False
+                End If
 
         Catch ex As Exception
             Throw ex
@@ -488,8 +510,11 @@ Public Class Application
 
             strPath = ""
             If fuImage.HasFile Then
-                strPath = Server.MapPath("/StudentDocs/") + fuImage.FileName
-                fuImage.SaveAs(strPath)
+                For Each postedFile As HttpPostedFile In fuImage.PostedFiles
+                    strPath = Server.MapPath("~/StudentDocs/") + postedFile.FileName
+                    fuImage.SaveAs(strPath)
+                Next
+
             End If
 
             strPath = "~/StudentDocs/" + fuImage.FileName
@@ -499,15 +524,15 @@ Public Class Application
             dtDOB = DateTime.ParseExact(Request.Form(txtDOB.UniqueID), "dd-MM-yyyy", New CultureInfo("en-US"))
 
             If rbMale.Checked Then
-                boolSbpEmp = 1
-            Else
-                boolSbpEmp = 0
-            End If
-
-            If RadioButtonSBPYES.Checked Then
                 strGender = "M"
             Else
                 strGender = "F"
+            End If
+
+            If RadioButtonSBPYES.Checked Then
+                boolSbpEmp = 1
+            Else
+                boolSbpEmp = 0
             End If
 
             If intRows > 0 Then
@@ -595,7 +620,10 @@ Public Class Application
 
             General.DoMultiTransaction(strQuery)
             btnSubmit.Enabled = False
-
+            btnPrintForm.Enabled = True
+            LoadStudentData()
+            ScriptManager.RegisterStartupScript(Me, Page.GetType, "Script", "showmodal();", True)
+            'Response.Redirect("Application.aspx")
 
         Catch ex As Exception
             lblMessage.Visible = True
@@ -613,6 +641,14 @@ Public Class Application
 
         End Try
 
+    End Sub
+
+    Protected Sub btnPrintForm_Click1(ByVal sender As Object, ByVal e As EventArgs)
+        Try
+            Response.Redirect("PrintAppForm.aspx")
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Protected Sub btnAddDocs_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddDocs.Click
@@ -633,46 +669,45 @@ Public Class Application
 
     Private Sub ToggleDocs()
 
-        If Session("Doc") = 1 Then
-            fuDoc0.Visible = True
-            fuDoc1.Visible = False
-            fuDoc2.Visible = False
-            fuDoc3.Visible = False
-            txtDocs0.Visible = True
-            txtDocs1.Visible = False
-            txtDocs2.Visible = False
-            txtDocs3.Visible = False
-        ElseIf Session("Doc") = 2 Then
-            fuDoc0.Visible = True
-            fuDoc1.Visible = True
-            fuDoc2.Visible = False
-            fuDoc3.Visible = False
-            txtDocs0.Visible = True
-            txtDocs1.Visible = True
-            txtDocs2.Visible = False
-            txtDocs3.Visible = False
-        ElseIf Session("Doc") = 3 Then
-            fuDoc0.Visible = True
-            fuDoc1.Visible = True
-            fuDoc2.Visible = True
-            fuDoc3.Visible = False
-            txtDocs0.Visible = True
-            txtDocs1.Visible = True
-            txtDocs2.Visible = True
-            txtDocs3.Visible = False
-        ElseIf Session("Doc") = 4 Then
-            fuDoc0.Visible = True
-            fuDoc1.Visible = True
-            fuDoc2.Visible = True
-            fuDoc3.Visible = True
-            txtDocs0.Visible = True
-            txtDocs1.Visible = True
-            txtDocs2.Visible = True
-            txtDocs3.Visible = True
-        End If
+        'If Session("Doc") = 1 Then
+        '    fuDoc0.Visible = True
+        '    fuDoc1.Visible = False
+        '    fuDoc2.Visible = False
+        '    fuDoc3.Visible = False
+        '    txtDocs0.Visible = True
+        '    txtDocs1.Visible = False
+        '    txtDocs2.Visible = False
+        '    txtDocs3.Visible = False
+        'ElseIf Session("Doc") = 2 Then
+        '    fuDoc0.Visible = True
+        '    fuDoc1.Visible = True
+        '    fuDoc2.Visible = False
+        '    fuDoc3.Visible = False
+        '    txtDocs0.Visible = True
+        '    txtDocs1.Visible = True
+        '    txtDocs2.Visible = False
+        '    txtDocs3.Visible = False
+        'ElseIf Session("Doc") = 3 Then
+        '    fuDoc0.Visible = True
+        '    fuDoc1.Visible = True
+        '    fuDoc2.Visible = True
+        '    fuDoc3.Visible = False
+        '    txtDocs0.Visible = True
+        '    txtDocs1.Visible = True
+        '    txtDocs2.Visible = True
+        '    txtDocs3.Visible = False
+        'ElseIf Session("Doc") = 4 Then
+        '    fuDoc0.Visible = True
+        '    fuDoc1.Visible = True
+        '    fuDoc2.Visible = True
+        '    fuDoc3.Visible = True
+        '    txtDocs0.Visible = True
+        '    txtDocs1.Visible = True
+        '    txtDocs2.Visible = True
+        '    txtDocs3.Visible = True
+        'End If
 
     End Sub
-
 
     Protected Sub RadioButtonSBPYES_CheckedChanged(sender As Object, e As EventArgs)
 
@@ -684,6 +719,9 @@ Public Class Application
         txtGrade.Enabled = True
         cboCitySbe.Enabled = True
 
+        txtPinNoValidator.Enabled = True
+        txtDesigValidator1.Enabled = True
+        txtGradeValidator1.Enabled = True
 
 
     End Sub
@@ -706,9 +744,6 @@ Public Class Application
     'cboCitySbe.SelectedIndex = 0
 
 
-
-      
-
     Protected Sub RadioButtonSBPNO_CheckedChanged1(sender As Object, e As EventArgs)
 
 
@@ -716,10 +751,17 @@ Public Class Application
         txtDesig.Enabled = False
         cboCitySbe.Enabled = False
         txtGrade.Enabled = False
-        cboCitySbe.Enabled = False
+        ' cboCitySbe.Enabled = False
+        txtPinNoValidator.Enabled = False
+        txtDesigValidator1.Enabled = False
+        txtGradeValidator1.Enabled = False
 
 
 
+    End Sub
+
+
+    Protected Sub rbMale_CheckedChanged(sender As Object, e As EventArgs) Handles rbMale.CheckedChanged
 
     End Sub
 End Class

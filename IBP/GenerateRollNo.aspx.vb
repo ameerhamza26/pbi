@@ -43,19 +43,34 @@
     Private Sub btnSearch_Click(sender As Object, e As System.EventArgs) Handles btnSearch.Click
 
         Dim dtApp As DataTable
+        Dim dtApp2 As DataTable
         Dim strQuery As String
 
         Try
 
-            strQuery = "Select a.ApplicationID,sd.Email,sd.Name,sd.CNIC from APPLICATION a, ELIGIBILITY e, STUDENT_DETAIL sd where "
-            strQuery += "a.Email = sd.Email and a.ApplicationID = e.ApplicationID and a.PreferenceID = '"
-            strQuery += cboPreference.SelectedValue + "' and e.Status = 'Y' "
-            strQuery += "and a.ApplicationID not in (Select ApplicationID from RollNumber) order by a.ApplicationID"
+            'strQuery = "Select a.ApplicationID,sd.Email,sd.Name,sd.CNIC from APPLICATION a, ELIGIBILITY e, STUDENT_DETAIL sd where "
+            'strQuery += "a.Email = sd.Email and a.ApplicationID = e.ApplicationID and a.PreferenceID = '"
+            'strQuery += cboPreference.SelectedValue + "' and e.Status = 'Y' "
+            'strQuery += "and a.ApplicationID not in (Select ApplicationID from RollNumber) order by a.ApplicationID"
+
+            strQuery = "select a.ApplicationID,sd.Email,sd.`Name`,sd.CNIC from APPLICATION a, STUDENT_DETAIL sd where a.Email = sd.Email and EligibleFlag = '1' and  ResultFlag = '0'"
+            strQuery += "and PreferenceID = '" + cboPreference.SelectedValue + "' ORDER BY ApplicationID "
+
+
 
             dtApp = General.FetchDataTable(strQuery)
 
-            grdApplication.DataSource = dtApp
-            grdApplication.DataBind()
+            If dtApp.Rows.Count > 0 Then
+                strQuery = "select * from RollNumber where ApplicationID = '" + dtApp.Rows(0)(0).ToString() + "'"
+                dtApp2 = General.FetchDataTable(strQuery)
+                If dtApp2.Rows.Count = 0 Then
+                    grdApplication.DataSource = dtApp
+                    grdApplication.DataBind()
+                End If
+
+            End If
+
+          
 
         Catch ex As Exception
             lblMessage.Text = ex.Message
